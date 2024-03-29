@@ -27,7 +27,12 @@ function addTodo(text) {
     var list = document.getElementById('todoList')
 
     var item = document.createElement('li')
-    item.innerText = '\u00a0' + text
+    var spanElement = document.createElement('span')
+    spanElement.classList.add('px-2')
+    spanElement.innerText = text
+
+    item.appendChild(spanElement)
+
     item.classList.add('list-group-item')
 
     var removeButton = document.createElement('button')
@@ -55,7 +60,7 @@ function addTodo(text) {
 function storeTodos() {
     var todos = []
     for (var i = 0; i < todoList.children.length; i++) {
-        todos.push(todoList.children[i].innerText.replace('Remove', '').trim())
+        todos.push(todoList.children[i].querySelector('span').textContent.trim())
     }
     localStorage.setItem('todos', JSON.stringify(todos))
 }

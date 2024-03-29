@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     loadTodos()
 })
 
+// 엔터시 동작하는 이벤트
+document.getElementById('todoInput').addEventListener('keyup',function(event) {
+    if(event.keyCode === 13) {
+        event.preventDefault()
+        document.getElementById('addTodo').click()
+    }
+})
+
 // 클릭시 동작하는 이벤트
 document.getElementById('addTodo').addEventListener('click', function() {
     var value = document.getElementById('todoInput').value
@@ -29,7 +37,6 @@ function addTodo(text) {
     completeButton.classList.add('btn', 'btn-dark', 'btn-sm', 'float-end')
     completeButton.addEventListener('click', function() {
         item.style.setProperty('text-decoration', 'line-through')
-        storeTodos()
     })
 
     removeButton.innerText = 'Remove'

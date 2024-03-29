@@ -1,0 +1,20 @@
+
+.rubik-scribble-regular {
+    font-family: "Rubik Scribble", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.indie-flower-regular {
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+h1 {
+    font-family: 'Rubik Scribble';
+}
+
+#addTodo, #todoList {
+    font-family: 'Indie Flower';
+}

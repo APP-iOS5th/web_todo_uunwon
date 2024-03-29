@@ -1,3 +1,10 @@
+
+// 돔트리 분석이 끝나면 동작하는 이벤트
+document.addEventListener('DOMContentLoaded', function() {
+    loadTodos()
+})
+
+// 클릭시 동작하는 이벤트
 document.getElementById('addTodo').addEventListener('click', function() {
     var value = document.getElementById('todoInput').value
     if (value) {
@@ -7,6 +14,7 @@ document.getElementById('addTodo').addEventListener('click', function() {
     }
 })
 
+// 화면을 그려주는 함수
 function addTodo(text) {
     var list = document.getElementById('todoList')
 
@@ -26,6 +34,7 @@ function addTodo(text) {
     list.appendChild(item)
 }
 
+// 리스트에 저장하는 함수
 function storeTodos() {
     var todos = []
     for (var i = 0; i < todoList.children.length; i++) {
@@ -34,6 +43,7 @@ function storeTodos() {
     localStorage.setItem('todos', JSON.stringify(todos))
 }
 
+// 새로 로딩하는 함수
 function loadTodos() {
     var todos = JSON.parse(localStorage.getItem('todos'))
     if(todos) {
@@ -42,5 +52,3 @@ function loadTodos() {
         })
     }
 }
-
-loadTodos()

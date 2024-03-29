@@ -19,10 +19,19 @@ function addTodo(text) {
     var list = document.getElementById('todoList')
 
     var item = document.createElement('li')
-    item.innerText = text
+    item.innerText = '\u00a0' + text
     item.classList.add('list-group-item')
 
     var removeButton = document.createElement('button')
+    var completeButton = document.createElement('button')
+
+    completeButton.innerText = 'Complete'
+    completeButton.classList.add('btn', 'btn-dark', 'btn-sm', 'float-end')
+    completeButton.addEventListener('click', function() {
+        item.style.setProperty('text-decoration', 'line-through')
+        storeTodos()
+    })
+
     removeButton.innerText = 'Remove'
     removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'float-end')
     removeButton.addEventListener('click', function() {
@@ -30,6 +39,7 @@ function addTodo(text) {
         storeTodos()
     })
 
+    item.appendChild(completeButton)
     item.appendChild(removeButton)
     list.appendChild(item)
 }

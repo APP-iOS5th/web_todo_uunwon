@@ -9,7 +9,7 @@ document.getElementById('addTodo').addEventListener('click', function() {
     var value = document.getElementById('todoInput').value
     if (value) {
         addTodo(value)
-        document.getElementById('todoInput').value
+        document.getElementById('todoInput').value = ''
         storeTodos()
     }
 })
